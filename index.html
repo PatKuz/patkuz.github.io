@@ -1,80 +1,165 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="styles.css" rel="stylesheet" type="text/css">
-        <link rel="icon" href="./assets/favicon.png">
-        <title>Patrick Kuzdzal</title>
-    </head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patrick Kuzdzal</title>
+<meta name="description" content="Patrick Kuzdzal: software engineer, ex-member of Neobotics, BU M.S. in Computer Science (Cybersecurity).">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="./assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="./assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="styles.css" rel="stylesheet">
+</head>
+<body>
+<canvas id="wave" aria-hidden="true"></canvas>
+<div class="frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
-    <body>
-        <div class="main">
-            <div class="sub">
-                <div class="term-entry">
-                    patrick@kuzdzal:~$ neofetch
-                </div>
-                <table>
-                    <tr style="text-align: left;">
-                        <td class="ascii">
-<pre>                                   
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⢀⣠⣶⠾⠛⠛⠋⠉⠛⠛⠷⢶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⣠⣾⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣷⣄⠀⠀⠀⠀⠀⠀
-⠀⠀⣴⠟⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣧⠀⠀⠀⠀⠀
-⠀⣸⡏⠀⠀⠀⠀⣴⣶⡆⠀⠀⠀⠀⢠⣶⣦⠀⠀⠀⠀⢹⣇⠀⠀⠀⠀
-⢠⣿⠀⠀⠀⠀⠀⠛⠟⠃⠀⠀⠀⠀⠘⠻⠛⠀⠀⠀⠀⠀⣿⡄⠀⠀⠀
-⢸⣿⠀⠀⠀⠀⢠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⢸⡇⠀⠀⠀
-⠘⣿⠀⠀⠀⠀⠸⣧⠀⠀⠀⠀⠀⠀⠀⠀⣼⡏⠀⠀⠀⠀⣿⠇⠀⠀⠀
-⠀⢻⣇⠀⠀⠀⠀⠙⢷⣦⣀⡀⠀⣀⣠⡾⠋⠀⠀⠀⠀⢰⡟⠀⠀⠀⠀
-⠀⠀⢻⣦⠀⠀⠀⠀⠀⠈⠉⠙⠋⠉⠉⠀⠀⠀⠀⠀⣰⡟⠁⠀⠀⠀⠀
-⠀⠀⠀⠙⢷⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⠏⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠙⠻⢶⣤⣄⣀⣀⣀⣀⣠⣤⡶⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-</pre>
-                        </td>
-                        <td class="info">
-<pre>
-<b>patrick@kuzdzal</b>
----------------
-<b>Education:</b>       Boston University
-                 M.S. in Computer Science, Specialization in Cybersecurity
-                 B.A. in Computer Science, Minor in Archaeology -- Cum Laude
+<header class="nav">
+<nav>
+<a href="#about">About</a>
+<a href="#work">Work</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+<a href="./assets/resume.pdf" target="_blank" rel="noopener" class="btn">Résumé ↗</a>
+</nav>
+</header>
 
-<b>Location:</b>        Boston, MA
+<main id="top">
 
-<b>Languages:</b>       Python, Java, C/C++
+<section class="hero">
+<div class="hero-text">
+<p class="label">Software Engineer — Boston, MA</p>
+<h1><em>Patrick</em><br><em class="indent">Kuzdzal</em></h1>
+<p class="lede">Ex-member of <a href="https://neobotics.org" target="_blank" rel="noopener">Neobotics</a>. I build software that sits close to the hardware and the network: autonomy stacks, stream processors, deployment tooling.</p>
+<dl class="meta">
+<div><dt>Now</dt><dd>Boston University</dd></div>
+<div><dt>Edu</dt><dd>M.S. CS (Cybersecurity), B.A. CS, BU</dd></div>
+<div><dt>Status</dt><dd><span class="dot"></span>Open to SWE / security roles</dd></div>
+</dl>
+</div>
+</section>
 
-<b>Curr Interest:</b>   Game Hacking
+<section id="about" class="sec">
+<h2 class="sec-head"><span>01</span>About</h2>
+<div class="sec-body two">
+<p class="big">I studied computer science at Boston University, then stayed for a Master's in computer science, specializing in cybersecurity. I helped found a robotics nonprofit, and am now looking for a new challenge.</p>
+<div>
+<p>My background is in security, and I still take apart games to see how they work. I like distributed systems, robotics, and code where latency is measured in milliseconds.</p>
+<p>I speak English and Polish, and I write mostly C/C++, Python, Java and Go.</p>
+</div>
+</div>
+</section>
 
-<b>Curr Project:</b>    <a target="_blank" rel="noopener noreferrer" href="https://neobotics.org" style="text-decoration: none;color: aquamarine;">neobotics.org</a>
+<section id="work" class="sec">
+<h2 class="sec-head"><span>02</span>Experience</h2>
+<ol class="sec-body jobs">
+<li>
+<time>2025</time>
+<div>
+<h3>Founding Member &amp; Software Engineer</h3>
+<p class="org"><a href="https://neobotics.org" target="_blank" rel="noopener">Neobotics Foundation</a> · former member</p>
+<ul>
+<li>One of 11 founders of a nonprofit building NeoRacer M1, a 1/12-scale autonomous racing kit (Jetson Orin Nano, 2D LiDAR, ROS 2). Backed by NVIDIA Inception.</li>
+<li>Designed, built and programmed the autonomy stack in Python and ROS 2: LiDAR localization and path-finding for high-speed laps.</li>
+<li>Part of the July 2026 production run. Buyers include Cornell's IDS Lab and universities on 3 continents.</li>
+</ul>
+</div>
+</li>
+<li>
+<time>2025 — Now</time>
+<div>
+<h3>CS Master's Administrator</h3>
+<p class="org">Boston University</p>
+<ul>
+<li>Led a 4-person team building an alumni database (Django, SQLite, 3,000+ records) that now tracks employment outcomes.</li>
+<li>Enrollment analysis in pandas and matplotlib for planning around 200+ students.</li>
+</ul>
+</div>
+</li>
+<li>
+<time>2022, 2023</time>
+<div>
+<h3>Software Engineer Intern</h3>
+<p class="org">Verisk</p>
+<ul>
+<li>Automated data collection across VMware cloud infrastructure. Retrieval went from 20s to about 1s per instance, for 1,200+ clients.</li>
+<li>Server deployment with Ansible and Packer, saving ~4 hours per deploy. AWS, Azure, Jenkins.</li>
+</ul>
+</div>
+</li>
+<li>
+<time>2021 — 2024</time>
+<div>
+<h3>Teaching Fellow &amp; TA</h3>
+<p class="org">Boston University</p>
+<ul>
+<li>Wrote a Java autograder used by ~2,400 students.</li>
+<li>Taught object-oriented design, debugging and data structures to 100+ students a term.</li>
+</ul>
+</div>
+</li>
+</ol>
+</section>
 
-<b>Employment:</b>      Currently Searching
-</pre>
-                        </td>
-                    </tr>
-                </table>
-                <br>
-                <div class="term-entry">
-                    patrick@kuzdzal:~$ open <a target="_blank" rel="noopener noreferrer" href="./assets/resume.pdf" style="text-decoration: none;color: aquamarine;">~/resume.pdf</a>
-                </div>
-                <br>
-                <div class="term-entry">
-                    patrick@kuzdzal:~$ cat ~/socials.txt
-                </div>
-                <div class="socials">
-<pre>
-<b>LinkedIn</b>     --     <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/pkuz/" style="text-decoration: none;color: aquamarine;">linkedin.com/in/pkuz/</a>
-<b>GitHub</b>       --     <a target="_blank" rel="noopener noreferrer" href="https://www.github.com/patkuz" style="text-decoration: none;color: aquamarine;">github.com/patkuz</a>
-<b>DevPost</b>      --     <a target="_blank" rel="noopener noreferrer" href="https://devpost.com/pkuzdzal" style="text-decoration: none;color: aquamarine;">devpost.com/pkuzdzal</a>
-</pre>
-                </div>
-                <br>
-                <div class="term-entry">
-                    patrick@kuzdzal:~$ exit
-                </div>
-            </div>
-        </div>
-    </body>
+<section id="projects" class="sec">
+<h2 class="sec-head"><span>03</span>Projects</h2>
+<div class="sec-body cards">
+<article class="card">
+<p class="card-top"><span>P.01</span><span>2026 — Now</span></p>
+<h3>HoloStream Causal Join</h3>
+<p>Causal-join operator for a distributed stream processor. Replays the Google Borg trace (6.2M events) into Kafka; the faster join sustained 60K events/s at 54 ms p50, 87 ms p99.</p>
+<p class="tags">Go · Kafka · BU Research</p>
+</article>
+<article class="card">
+<p class="card-top"><span>P.02</span><span>2022</span></p>
+<h3><a href="https://devpost.com/software/highwaypatrol" target="_blank" rel="noopener">Highway Patrol ↗</a></h3>
+<p>Model that detects visual signs of impaired driving, served through a web app. BostonHacks: Innovating with AI.</p>
+<p class="tags">React · Flask · ML</p>
+</article>
+<article class="card">
+<p class="card-top"><span>P.03</span><span>2021</span></p>
+<h3><a href="https://devpost.com/software/friendable" target="_blank" rel="noopener">Friendable ↗</a></h3>
+<p>Matches people and recommends groups, events and places to eat. Three BostonHacks awards, incl. Best Use of Google Cloud.</p>
+<p class="tags">GCP · Twilio</p>
+</article>
+</div>
+</section>
 
-<!--you want to hire me you want to hire me you want to hire me-->
+<section id="skills" class="sec">
+<h2 class="sec-head"><span>04</span>Toolkit</h2>
+<dl class="sec-body skills">
+<div><dt>Languages</dt><dd>Python, Go, Java, C/C++, JavaScript, SQL</dd></div>
+<div><dt>Frameworks</dt><dd>ROS 2, React, Django, Flask, pandas, matplotlib</dd></div>
+<div><dt>Infrastructure</dt><dd>AWS, Azure, GCP, VMware, Docker, Ansible, Packer, Jenkins</dd></div>
+<div><dt>Data &amp; Systems</dt><dd>Kafka, SQLite, REST, Linux</dd></div>
+</dl>
+</section>
+
+<section id="contact" class="sec contact">
+<h2 class="sec-head"><span>05</span>Contact</h2>
+<div class="sec-body">
+<a class="mail" href="mailto:patrick@neobotics.org">patrick@neobotics.org</a>
+<ul class="links">
+<li><a href="./assets/resume.pdf" target="_blank" rel="noopener">Résumé <span>PDF ↗</span></a></li>
+<li><a href="https://www.linkedin.com/in/pkuz/" target="_blank" rel="noopener">LinkedIn <span>/in/pkuz ↗</span></a></li>
+<li><a href="https://github.com/patkuz" target="_blank" rel="noopener">GitHub <span>/patkuz ↗</span></a></li>
+<li><a href="https://devpost.com/pkuzdzal" target="_blank" rel="noopener">Devpost <span>/pkuzdzal ↗</span></a></li>
+</ul>
+</div>
+</section>
+
+</main>
+
+<footer class="foot">
+<span>2026 Patrick Kuzdzal</span>
+<span>Boston, MA — 42.3601° N, 71.0589° W</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+<!-- you want to hire me you want to hire me you want to hire me -->
 </html>
